@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<section>
+<article>
+    <h1>Menu</h1>
+    <!--Begin row-->
+    <div class="row">
+        <!--Begin col-->
+        <div class="column">
+        {% if menu %}
+        {% for menu in menu.menuItem %}
+
+        <p>
+            <a href="{% url 'menuitem' pk=menu.pk %}">
+            <span class="menu-name">{{ menu.name }}</span>
+            </a>
+            <span class="menu-price">${{ menu.price }}.00</span>
+           
+            
+        </p>
+        {% endfor %}
+        {% else %}
+
+        <p>No hay productos disponibles en el menu actualmente</p>
+        {% endif %}
+    </div>
+    </div>
+</article>
+</section>
+{% endblock %}
